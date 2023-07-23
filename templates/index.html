@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+  
+    <title>RnR Apple</title>
+    <link href="{{ url_for('static', filename='assets/images/title.png') }}" rel="icon">
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" />
+
+    <style>
+      #header {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+      }
+    
+      #logo {
+        margin-right: 20px; /* Atur jarak antara logo dan menu */
+      }
+    
+      #menu {
+        display: flex;
+        align-items: center;
+      }
+    
+      #menu li {
+        margin-right: 16px; /* Atur jarak antara menu */
+      }
+      /* Mengurangi space kosong pada elemen .left-content */
+  .left-content {
+    margin-bottom: 20px;
+  }
+  
+  /* Mengurangi space kosong pada elemen .about-right-content */
+  .about-right-content {
+    margin-top: 20px;
+  }
+  
+  /* Mengurangi space kosong pada elemen .services */
+  .services {
+    margin-bottom: 20px;
+  }
+  
+  /* Mengurangi space kosong pada elemen .container pada bagian akhir */
+  .container:last-child {
+    margin-bottom: 20px;
+  }
+    </style>
+    
+    
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/animated.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/fontawesome.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/owl.css') }}">
+  
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky" >
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <nav class="main-nav">
+              <!-- ***** Logo Start ***** -->
+              <a href="#" class="logo">
+                <img src="{{ url_for('static', filename='assets/images/logo-apel.png') }}" alt="Gambar" style="width: 300px; height: auto;">
+              </a>
+              <!-- ***** Logo End ***** -->
+    
+              <!-- ***** Menu Start ***** -->
+              <ul class="nav" id="menu">
+                <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
+                <li class="scroll-to-section"><a href="#how">How To Use</a></li>
+                <li class="scroll-to-section"><a href="#free-quote">About Us</a></li>
+                <li class="scroll-to-section"><a href="#portfolio">Article</a></li>
+                <li class="scroll-to-section">
+                  <div class="border-first-button"><a href="#services">Predict</a></div>
+                </li>
+              </ul>
+    
+              <div class="menu-toggle" id="menu-toggle">
+                <button class="toggle-button">
+                  <span class="hamburger"></span>
+                </button>
+                <div class="menu-dropdown">
+                  <ul class="menu-dropdown-list">
+                    <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
+                    <li class="scroll-to-section"><a href="#how">How To Use</a></li>
+                    <li class="scroll-to-section"><a href="#free-quote">About Us</a></li>
+                    <li class="scroll-to-section"><a href="#services">Predict</a></li>
+                    <li class="scroll-to-section"><a href="#portfolio">Apple's Gallery</a></li>
+                  </ul>
+                </div>
+              </div>
+    
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+</head>
+
+<script>
+  const toggleButton = document.querySelector('.toggle-button');
+  const menuDropdown = document.querySelector('.menu-dropdown');
+
+  toggleButton.addEventListener('click', function() {
+    menuDropdown.classList.toggle('active');
+    toggleButton.classList.toggle('active');
+  });
+
+  
+</script>
+
+<style>
+.menu-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.toggle-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+
+.menu-dropdown {
+  display: none;
+  position: fixed;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #dcdcdc;
+  padding: 10px;
+  box-sizing: border-box;
+  z-index: 999;
+}
+
+.menu-dropdown-list li:first-child a {
+  border-top: none;
+}
+
+.menu-dropdown.show {
+  display: block;
+}
+
+.menu-dropdown-list li {
+  text-align: center;
+  margin-bottom: -1px;
+}
+
+.menu-dropdown-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border: 1px solid;
+}
+
+.nav li a {
+  font-weight: bold !important;
+  color: black; /* Warna huruf pada menu dropdown */
+  transition: color 0.3s ease;
+}
+
+.hamburger {
+  display: block;
+  width: 30px;
+  height: 3px;
+  background-color: black;
+  position: relative;
+  transition: background-color 0.3s ease;
+}
+
+.hamburger:before,
+.hamburger:after {
+  content: "";
+  width: 30px;
+  height: 3px;
+  background-color: black;
+  position: absolute;
+  transition: transform 0.3s ease;
+}
+
+.hamburger:before {
+  top: -10px;
+}
+
+.hamburger:after {
+  top: 10px;
+}
+
+.toggle-button.active .hamburger {
+  background-color: transparent;
+}
+
+.toggle-button.active .hamburger:before {
+  transform: rotate(45deg);
+  top: 0;
+}
+
+.toggle-button.active .hamburger:after {
+  transform: rotate(-45deg);
+  top: 0;
+}
+
+.menu-dropdown {
+  display: none;
+}
+
+.menu-dropdown.active {
+  display: block;
+}
+
+/* CSS Tambahan */
+.main-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menu-dropdown-list li a {
+  display: block;
+  padding: 10px;
+  color: black;
+  transition: color 0.3s ease;
+  background-color: white;
+  box-sizing: border-box;
+  border-top: 1px solid #ccc;
+}
+
+.menu-dropdown-list li a:hover {
+  color: orange; /* Warna huruf pada menu dropdown saat dipencet */
+}
+
+@media (min-width: 768px) {
+  .menu-toggle {
+    display: none;
+
+}
+  }
+
+ /* CSS Tambahan */
+.main-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.nav li {
+  margin-left: 20px;
+  white-space: nowrap; /* Mencegah pemisahan kata pada menu */
+}
+
+@media (max-width: 991px) {
+  .nav {
+    flex-wrap: nowrap; /* Mencegah pemisahan menu pada baris baru */
+    overflow-x: auto; /* Menambahkan scrolling horizontal saat menu tidak cukup muat pada layar */
+  }
+  .nav li {
+    margin: 0 10px;
+    white-space: nowrap; /* Mencegah pemisahan kata pada menu */
+  }
+}
+</style>
+      
+    <div class="main-banner" id="top">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="row">
+              <div class="col-md-6 align-self-center">
+                <div class="left-content show-up header-text">
+                  <div class="row">
+                    
+                    <div class="col-lg-12">
+                      <h6>RnR APPLE</h6>
+                      <h2>We Predict Ripe and Raw Apples</h2>
+                      <p>You can accurately predict whether an apple is ripe or raw with the type rome beauty. Enjoy at all!</p>
+                    </div>
+                    <div class="col-lg-12">
+                      <div class="border-first-button scroll-to-section">
+                        <a href="#services">Predict</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col-md-6">
+                <div class="right-image">
+                  <img src="{{ url_for('static', filename='assets/images/apel.png') }}" alt="Gambar" style="width: 300px; height: auto;">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="how" class="about section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="about-left-image">
+                  <img src="{{ url_for('static', filename='assets/images/how.jpg') }}" alt="Gambar" style="width: 300px; height: auto;">
+                </div>
+              </div>
+              <div class="col-md-6 align-self-center">
+                <div class="about-right-content">
+                  <div class="section-heading">
+                    <h6>How To Use</h6>
+                    <h4>How To Use <em>RnR APPLE</em></h4>
+                    <div class="line-dec"></div>
+                  </div><br>
+                  <div>
+                    <ol>
+                      <li>1. Open the website</li>
+                      <li>2. Select the "predict" menu</li>
+                      <li>3. If you want predict from gallery, click choose file, and click upload</li>
+                      <li>4. If you want predict from camera, click capture</li>
+                      <li>5. Wait for the results to appear</li>
+                  </ol>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="services" class="services section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="section-heading">
+              <h6>Predict</h6>
+              <h4>Go Predict! <em>Apple Rome Beauty</em></h4>
+              <div class="line-dec"></div>
+            </div>
+          </div>
+          <div class="section-heading">
+            
+            <body>
+              <div class="bg-img">
+              <div class="content">
+                    <div style = "width : 100%; ">
+                          <div class="section-heading">
+                            <h4><em>Ripe and Raw Apple</em></h4>
+                        </div>
+                    </div>
+
+                    <body>
+                      <div class="container">
+                        <div class="row">
+                          <div class="col-lg-6">
+                            <h1>Upload Image</h1>
+                            <form action="/predict_upload" method="post" enctype="multipart/form-data">
+                              <label for="choose-file" class="custom-file-upload">
+                                <input type="file" name="image" accept="image/*" id="choose-file">
+                              </label>
+                              <input type="submit" value="Upload">
+                            </form>
+                          </div>
+                          <div class="col-lg-6">
+                            <h1>Capture Image</h1>
+                            <div class="capture-container">
+                              <button id="capture">Capture</button>
+                            </div>
+                            <div class="camera-container">
+                              <video id="video" width="400" height="300" autoplay></video>
+                              <canvas id="canvas" width="400" height="300"></canvas>
+                            </div>
+                          </div>
+                          <style>
+                            .custom-file-upload {
+                              display: inline-block;
+                              padding: 10px 20px;
+                              background-color: #ff4b37;
+                              color: #fff;
+                              cursor: pointer;
+                              border-radius: 20px;
+                            }
+                          
+                            .custom-file-upload:hover {
+                              background-color: #ff4b37;
+                            }
+                          
+                            .row {
+                              display: flex;
+                              justify-content: space-between;
+                              margin-bottom: 20px;
+                            }
+                          
+                            .column {
+                              flex-basis: calc(50% - 10px);
+                              padding: 10px;
+                            }
+                          
+                            h1 {
+                              text-align: center;
+                            }
+                          
+                            form,
+                            .capture-container {
+                              text-align: center;
+                            }
+                          
+                            input[type="file"],
+                            input[type="submit"],
+                            #capture {
+                              width: 200px;
+                              height: 40px;
+                              border-radius: 20px;
+                              outline: none;
+                              border: none;
+                              margin: 10px auto;
+                              background-color: #fe664e;
+                              font-size: 15px;
+                              color: #fff;
+                              display: flex;
+                              align-items: center;
+                              justify-content: center;
+                              transition: all 0.3s ease;
+                              cursor: pointer;
+                            }
+                          
+                            input[type="file"]:hover,
+                            input[type="submit"]:hover,
+                            #capture:hover {
+                              background-color: #ff4b37;
+                            }
+                          
+                            input[type="file"]:active,
+                            input[type="submit"]:active,
+                            #capture:active {
+                              background-color: #e63c28;
+                              color: #fff;
+                            }
+                          
+                            input[type="file"]:focus,
+                            input[type="submit"]:focus,
+                            #capture:focus {
+                              box-shadow: 0 0 0 2px #fe664e, 0 0 0 4px #ff4b37;
+                              outline: none;
+                            }
+                          
+                            .camera-container {
+                              text-align: center;
+                              margin-top: 20px;
+                              box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                              padding: 20px;
+                              position: relative;
+                            }
+                          
+                            #video,
+                            #canvas {
+                              display: block;
+                              margin: 0 auto;
+                              border: 1px solid #333333;
+                            }
+                          
+                            .capture-container {
+                              display: flex;
+                              justify-content: center;
+                              margin-bottom: 10px;
+                              margin-top: 20px;
+                              width: 100%;
+                              text-align: center;
+                            }
+                          
+                            .col-lg-6 {
+                              display: flex;
+                              flex-direction: column;
+                              align-items: center;
+                              height: 100vh;
+                            }
+                          
+                            .camera-container {
+                              display: flex;
+                              flex-direction: column;
+                              align-items: center;
+                              margin-bottom: 20px;
+                            }
+                          
+                            .predict-menu {
+                              text-align: center;
+                              background-color: #f2f2f2;
+                              padding: 20px;
+                              max-width: 600px;
+                            }
+                          
+                            .predict-menu .capture-container {
+                              margin-top: 20px;
+                            }
+                          
+                            .predict-menu .camera-container {
+                              margin-top: 20px;
+                            }
+                          
+                            .predict-menu #capture {
+                              display: block;
+                              margin: 0 auto;
+                            }
+                          
+                            @media (min-width: 576px) {
+                              .col-lg-6 {
+                                max-width: 576px;
+                                margin: 0 auto;
+                              }
+                            }
+                          </style>
+                          
+                      
+                    
+                      <script>
+                        const video = document.getElementById('video');
+                        const canvas = document.getElementById('canvas');
+                        const captureButton = document.getElementById('capture');
+                        
+                        // Access the webcam stream
+                        navigator.mediaDevices.getUserMedia({ video: true })
+                          .then((stream) => {
+                            video.srcObject = stream;
+                          })
+                          .catch((error) => {
+                            console.error('Error accessing webcam:', error);
+                          });
+                        
+                        // Capture image from the video
+                        captureButton.addEventListener('click', () => {
+                          const context = canvas.getContext('2d');
+                          context.drawImage(video, 0, 0, canvas.width, canvas.height);
+                          
+                          // Convert canvas image to base64 data URL
+                          const image = canvas.toDataURL('image/jpeg');
+                          
+                          // Create a hidden input field to store the captured image
+                          const input = document.createElement('input');
+                          input.type = 'hidden';
+                          input.name = 'image';
+                          input.value = image;
+                          
+                          // Append the input field to the form and submit the form
+                          const form = document.createElement('form');
+                          form.method = 'post';
+                          form.action = '/predict_capture';
+                          form.appendChild(input);
+                          document.body.appendChild(form);
+                          form.submit();
+                        });
+                      </script>
+                    </body>
+                    
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+    
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div> 
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <div id="free-quote" class="free-quote">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 offset-lg-4">
+            <div class="section-heading">
+              <h6>ABOUT US</h6>
+              <h4>Hi, Meet Our Team!</h4>
+              <div class="line-dec"></div>
+            </div>
+            <ul>
+              <h5 style="color: white;">
+                <li>Anggia Dea Saputri (IK3E / 3.34.20.4.02)</li>
+              <li>Zuyyina Hanifatul Muizza (IK3E / 3.34.20.4.26)</li>
+              </h5>  
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <style>
+      .article-grid {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        margin: 0 auto;
+        max-width: 800px;
+        flex-wrap: wrap;
+      }
+    
+      .article-box {
+        flex-basis: calc(50% - 10px);
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+        text-align: center;
+        color: black;
+        cursor: pointer;
+      }
+    
+      .article-box a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none;
+        color: black;
+        width: 100%;
+      }
+    
+      .article-box h4 {
+        margin-top: 10px;
+        margin-bottom: 0;
+      }
+    
+      .article-box img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+    
+      @media only screen and (max-width: 480px) {
+        .article-box {
+          flex-basis: 100%;
+        }
+      }
+    </style>
+    
+    <div id="portfolio" class="our-portfolio section">
+      <div class="container">
+            <div class="section-heading">
+              <h4>Article</h4>
+              <div class="line-dec"></div>
+            </div>
+          
+        
+        <div class="article-grid">
+          <div class="article-box" onclick="window.open('https://tribunkaltimtravel.tribunnews.com/2020/11/22/cara-menyimpan-apel-agar-awet-dan-tidak-cepat-busuk', '_blank')">
+            <a href="#" class="icon-link">
+              <img src="{{ url_for('static', filename='assets/images/tips.jpg') }}" alt="Tips Image" style="height: 200px;">
+              <h4>Tips</h4>
+            </a>
+          </div>
+          <div class="article-box" onclick="window.open('https://www.goodnewsfromindonesia.id/2021/06/28/menilik-asal-usul-apel-yang-identik-dengan-kota-malang', '_blank')">
+            <a href="#" class="icon-link">
+              <img src="{{ url_for('static', filename='assets/images/origin.png') }}" alt="Origin Image" style="height: 200px;">
+              <h4>Origin</h4>
+            </a>
+          </div>
+          <div class="article-box" onclick="window.open('https://www.bbc.com/indonesia/vert-fut-50646745', '_blank')">
+            <a href="#" class="icon-link">
+              <img src="{{ url_for('static', filename='assets/images/varieties.jpg') }}" alt="Varieties Image" style="height: 200px;">
+              <h4>Varieties</h4>
+            </a>
+          </div>
+          <div class="article-box" onclick="window.open('https://jatimnow.com/baca-32895-rasa-segar-sedikit-asam-apel-rome-beauty-dari-malang-melimpah-di-pios', '_blank')">
+            <a href="#" class="icon-link">
+              <img src="{{ url_for('static', filename='assets/images/flavour.jpg') }}" alt="Flavour Image" style="height: 200px;">
+              <h4>Flavour</h4>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <p><b>Copyright © 2023 RnR APPLE. All Rights Reserved.</b> </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div id="scrollToTopButton"></div>
+
+<style>
+#scrollToTopButton {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  line-height: 50px;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 9999; /* Memastikan tombol tampil di atas konten lainnya */
+}
+
+#scrollToTopButton::before {
+  content: "\2191"; /* Menggunakan karakter panah Unicode */
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#scrollToTopButton:hover {
+  background-color: #555;
+}
+</style>
+
+<script>
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("scrollToTopButton").style.display = "block";
+  } else {
+    document.getElementById("scrollToTopButton").style.display = "none";
+  }
+}
+
+document.getElementById("scrollToTopButton").onclick = function() {
+  scrollToTop();
+};
+
+function scrollToTop() {
+  var currentPosition = document.documentElement.scrollTop || document.body.scrollTop;
+  if (currentPosition > 0) {
+    var scrollStep = currentPosition / 40; // Kecepatan pengguliran
+
+    var scrollInterval = setInterval(function() {
+      currentPosition -= scrollStep;
+      if (currentPosition <= 0) {
+        clearInterval(scrollInterval);
+        currentPosition = 0;
+      }
+      window.scrollTo(0, currentPosition);
+    }, 10);
+  }
+}
+</script>
+
+
+    <script src="{{ url_for('static', filename='assets/js/owl-carousel.js') }}"></script>
+ <!-- Scripts -->
+    <script src="{{ url_for('static', filename='vendor/jquery/jquery.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/jquery/jquery.slim.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/jquery/jquery.slim.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/animation.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/imagesloaded.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/custom.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/isotope.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/tabs.js') }}"></script>
+  </body>
+</html>
